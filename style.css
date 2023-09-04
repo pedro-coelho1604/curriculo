@@ -1,0 +1,422 @@
+/* variaveis */
+:root {
+    --cor-primaria: white;
+    --preto: rgba(0, 0, 0, 0.1);
+    --preto-claro: #333;
+    --cinza: #555;
+
+}
+
+
+
+/* Estilo base para todo o documento */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 40px;
+    color: var(--cinza);
+    background-color: var(--cor-primaria);
+}
+
+/* Estiliza o cabeçalho do currículo */
+header {
+    background-color: var(--preto-claro);
+    color: var(--cor-primaria);
+    text-align: center;
+    padding: 50px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px var(--preto);
+}
+
+/* Estilo para a seção de perfil */
+main {
+    background-color: white;
+    color: black;
+}
+
+main .sobre {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    justify-content: center;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px var(--preto);
+}
+
+.sobre_titulo {
+    margin: 30px 0;
+    grid-column: 1/-1;
+    text-align: center;
+    color: #fff;
+}
+
+.sobre_titulo h1 {
+    font-size: 2.5rem;
+    color: black;
+    margin-bottom: 15px;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+.sobre_titulo p {
+    color: #707070;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.sobre_titulo div {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.sobre_titulo span {
+    display: block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.sobre img {
+    animation: ladoSecao .5s ease-in-out forwards;
+    cursor: pointer;
+    grid-row: 2;
+    max-width: 100%;
+    border-radius: 4px;
+    filter: blur(0);
+}
+
+.sobre img:hover {
+    transition: .5s ease-in;
+    filter: blur(1px);
+}
+
+.sobre_conteudo {
+    animation: sobeSecao .6s ease-in-out forwards;
+    grid-column: 2/-1;
+    display: grid;
+    color: #707070;
+    grid-template-columns: 1fr 1fr;
+}
+
+.sobre_texto {
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: 1fr 1fr;
+}
+
+.sobre_texto h1 {
+    font-size: 2.3rem;
+    color: #fff;
+    grid-column: 1/-1;
+}
+
+.sobre_texto h1::after {
+    background-color: black;
+    height: 6px;
+    width: 60px;
+    margin: 20px 0;
+    content: '';
+    display: block;
+    border-radius: 5px;
+}
+
+.sobre_texto p {
+    font-size: 1.3rem;
+    grid-row: 2;
+    grid-column: 1/-1;
+}
+
+.sobre_info {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 1/-1;
+    gap: 15px;
+    align-items: center;
+}
+
+.sobre_info i {
+    color: black;
+    display: inline-block;
+    padding-right: 15px;
+    font-size: 1.5rem;
+}
+
+.sobre_info p {
+    font-size: .9rem;
+}
+
+@keyframes sobeSecao {
+    from {
+        transition: .5s;
+        transform: translate3d(60px, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes ladoSecao {
+    from {
+        transition: .5s;
+        transform: translate3d(-60px, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
+/* RESPONSIVO */
+
+@media(max-width: 992px) {
+    .section-div img {
+        display: none;
+    }
+
+    .section-div {
+        background-image: url(img/pessoa\ ilustrativa.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    header {
+        justify-content: space-between;
+        padding: 30px 70px;
+    }
+
+    header .navegacao-primaria {
+        display: none;
+    }
+
+    header i {
+        color: #f7f7f7;
+        font-size: 3rem;
+    }
+
+    header .navegacao-primaria.ativado {
+        background: linear-gradient(rgba(43, 42, 42, 0.176), rgba(46, 46, 46, 0.724));
+        position: absolute;
+        display: grid;
+        top: 80px;
+        color: white;
+        z-index: 1;
+        padding: 30px;
+        font-size: 1.6rem;
+        font-weight: bold;
+        border-radius: 0 0 4px 4px;
+        right: 20px;
+        animation: sobeSecao .8s ease-in-out forwards;
+    }
+}
+
+
+@media(max-width: 992px) {
+    .sobre img {
+        grid-column: 1/-1;
+        justify-self: center;
+    }
+
+    .sobre_conteudo {
+        grid-column: 1/-1;
+    }
+}
+
+/*==================== SKILLS ====================*/
+.skills__container{
+    row-gap: 0;
+  }
+  
+  .skills__header{
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--mb-2-5);
+    cursor: pointer;
+  }
+  
+  .skills__icon,
+  .skills__arrow{
+    font-size: 2rem;
+    color: var(--first-color);
+  }
+  
+  .skills__icon{
+    margin-right: var(--mb-0-75);
+  }
+  
+  .skills__title{
+    font-size: var(--h3-font-size);
+  }
+  
+  .skills__subtitle{
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+  }
+  
+  .skills__arrow{
+    margin-left: auto;
+    transition: .4s;
+  }
+  
+  .skills__list{
+    row-gap: 1.5rem;
+    padding-left: 2.7rem;
+  }
+  
+  .skills__titles{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--mb-0-5);
+  }
+  
+  .skills__name{
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+  }
+  
+  .skills__bar,
+  .skills__percentage{
+    height: 5px;
+    border-radius: .25rem;
+  }
+  
+  .skills__bar{
+    background-color: var(--first-color-lighter);
+  }
+  
+  .skills__percentage{
+    display: block;
+    background-color: var(--first-color);
+  }
+  
+  .skills__html{
+    width: 90%;
+  }
+  .skills__css{
+    width: 80%;
+  }
+  .skills__js{
+    width: 60%;
+  }
+  .skills__react{
+    width: 55%;
+  }
+  
+  
+  .skills__php{
+    width: 55%;
+  }
+  .skills__node{
+    width: 55%;
+  }
+  .skills__firebase{
+    width: 55%;
+  }
+  .skills__python{
+    width: 55%;
+  }
+  
+  
+  .skills__figma{
+    width: 55%;
+  }
+  .skills__sketch{
+    width: 55%;
+  }
+  .skills__photoshop{
+    width: 55%;
+  }
+  
+  .skills__close .skills__list{
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .skills__open .skills__list{
+    height: max-content;
+    margin-bottom: var(--mb-2-5);
+  }
+  
+  .skills__open .skills__arrow{
+    transform: rotate(-180deg);
+  }
+
+
+/* Estilo para seções individuais */
+section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--cor-primaria);
+    border-radius: 5px;
+    box-shadow: 0 4px 6px var(--preto);
+}
+
+/* Estilo para os links dentro da lista de projetos */
+.projetos a {
+    color: #007BFF; /* Cor dos links */
+    text-decoration: none; /* Remove sublinhado dos links */
+}
+
+.projetos a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse sobre o link */
+}
+
+/* Estilo para o rodapé */
+footer {
+  background-color: var(--cor-primaria);
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px var(--preto);
+  margin-top: 35px;
+}
+
+.footer_sociais {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  position: relative;
+  align-items: center;
+  list-style: none;
+}
+
+.footer_sociais li {
+  border-radius: 50%;
+  background-color: #212020;
+  border: 1px solid #333;
+}
+
+.footer_sociais li i {
+  padding: 30px;
+  font-size: 1.5rem;
+  color: 363636;
+}
+
+.footer_sociais li:hover {
+  transition: .3s ease-in-out;
+  cursor: pointer;
+  background-color: #3e3d3d;
+}
+
+.footer_sociais::before {
+  position: absolute;
+  content: '';
+  bottom: -30px;
+  height: 5px;
+  width: 200px;
+  background-color: #222;
+}
+
+footer .footer_comercial {
+  text-align: center;
+  color: #222;
+  font-size: 1.5rem;
+  margin: 90px 0;
+  font-family: 'Poppins';
+}
+
